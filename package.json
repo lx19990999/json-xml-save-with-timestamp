@@ -1,0 +1,49 @@
+{
+    "name": "json-xml-save-with-timestamp",
+    "displayName": "JSON/XML Save with Timestamp",
+    "version": "0.0.8",
+    "repository": "https://github.com/lx19990999/json-xml-save-with-timestamp",
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "main": "./src/extension.js",
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:jsonXmlSaveWithTimestamp.saveWithTimestamp"
+    ],
+    "contributes": {
+        "commands": [
+            {
+                "command": "jsonXmlSaveWithTimestamp.saveWithTimestamp",
+                "title": "Save JSON/XML with Timestamp"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "jsonXmlSaveWithTimestamp.saveWithTimestamp",
+                "key": "ctrl+alt+s",
+                "mac": "cmd+alt+s"
+            }
+        ],
+        "configuration": {
+            "title": "JSON/XML Save with Timestamp",
+            "properties": {
+                "jsonXmlSaveWithTimestamp.savePath": {
+                    "type": "string",
+                    "default": "${workspaceFolder}",
+                    "description": "Path to save the files"
+                },
+                "jsonXmlSaveWithTimestamp.filenameFormat": {
+                    "type": "string",
+                    "default": "YYYYMMDD_HHmmss",
+                    "description": "Format for the timestamp in filename (using moment.js format)"
+                }
+            }
+        }
+    },
+    "dependencies": {
+        "moment": "^2.29.4"
+    }
+}
